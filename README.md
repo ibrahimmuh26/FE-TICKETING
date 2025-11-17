@@ -2,7 +2,7 @@
 
 A modern, responsive helpdesk ticketing system built with React, TypeScript, and Tailwind CSS.
 
-## 🚀 Features
+## Features
 
 - **Multi-level Support System** (L1, L2, L3)
 - **Ticket Management** - Create, view, update, and escalate tickets
@@ -13,7 +13,7 @@ A modern, responsive helpdesk ticketing system built with React, TypeScript, and
 - **Pagination** - Efficient data loading with customizable page size
 - **Search & Filters** - Find tickets by ID, title, status, priority, or escalation level
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before running this application, make sure you have:
 
@@ -21,7 +21,7 @@ Before running this application, make sure you have:
 - **npm** v10.1.0 or higher
 - **Backend API** running on `http://localhost:8021`
 
-## 🔧 Installation
+## Installation
 
 1. **Clone the repository**
    ```bash
@@ -48,9 +48,7 @@ Before running this application, make sure you have:
    });
    ```
 
-## 🏃 Running the Application
-
-### Start the Frontend
+## Running the Application
 
 1. **Install dependencies** (if not already installed)
    ```bash
@@ -67,10 +65,9 @@ Before running this application, make sure you have:
    http://localhost:5173
    ```
 
-> **Note:** Make sure the backend API is running on `http://localhost:8021` for the application to work properly. See backend setup instructions below if needed.
+> **Note:** Make sure the backend API is running on `http://localhost:8021` for the application to work properly.
 
-
-### Frontend (.env - Optional)
+## Environment Variables
 
 Currently, the application doesn't require `.env` file. All configuration is done in code.
 
@@ -90,49 +87,111 @@ If you need to use environment variables in the future:
 
 3. Restart the dev server
 
-### Backend (.env - Required)
+## Authentication
 
-```env
-# Server Configuration
-PORT=8021
-NODE_ENV=development
+### Sample Credentials
 
-# Database
-MONGODB_URI=mongodb://localhost:27017/helpdesk
+The application requires authentication. Use these sample credentials to login:
 
-# JWT Authentication
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
-JWT_EXPIRES_IN=7d
+**L1 User (Support Agent)**
+- Email: `l1@example.com`
+- Password: `password123`
+- Permissions: Create tickets, update L1 tickets, escalate to L2
 
-# CORS (Optional)
-ALLOWED_ORIGINS=http://localhost:5173
-```
+**L2 User (Senior Support)**
+- Email: `l2@example.com`
+- Password: `password123`
+- Permissions: Update L2 tickets, assign critical values, escalate to L3
 
-## 🌟 Key Features by Role
+**L3 User (Admin)**
+- Email: `admin@gmail.com`
+- Password: `password123`
+- Permissions: Resolve tickets, full system access
+
+> **Note:** These are sample credentials. The actual credentials depend on your backend database.
+
+## Key Features by Role
 
 ### L1 (Support Agent)
-- ✅ Create new tickets
-- ✅ View all tickets
-- ✅ Update L1 tickets (add resolution notes, change status)
-- ✅ Escalate tickets to L2 with reason
-- ✅ Search and filter tickets
+- Create new tickets
+- View all tickets
+- Update L1 tickets (add resolution notes, change status)
+- Escalate tickets to L2 with reason
+- Search and filter tickets
 
 ### L2 (Senior Support)
-- ✅ View all tickets
-- ✅ Update L2 tickets (add resolution notes, change status)
-- ✅ Assign critical values (C1, C2, C3)
-- ✅ Escalate tickets to L3 with reason
-- ✅ Search and filter tickets
+- View all tickets
+- Update L2 tickets (add resolution notes, change status)
+- Assign critical values (C1, C2, C3)
+- Escalate tickets to L3 with reason
+- Search and filter tickets
 
 ### L3 (Admin)
-- ✅ View all tickets
-- ✅ Update L3 tickets
-- ✅ Resolve tickets with final resolution
-- ✅ Full system access
-- ✅ View all activity logs
-- ✅ Search and filter tickets
+- View all tickets
+- Update L3 tickets
+- Resolve tickets with final resolution
+- Full system access
+- View all activity logs
+- Search and filter tickets
 
-## 📱 Responsive Breakpoints
+## Project Structure
+
+```
+helpdesk-app/
+├── src/
+│   ├── components/          # Reusable UI components
+│   │   ├── __tests__/      # Component tests
+│   │   ├── icons/          # SVG icon components
+│   │   ├── Modal.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── Pagination.tsx
+│   │   └── ...
+│   ├── contexts/           # React Context providers
+│   │   └── AuthContext.tsx
+│   ├── pages/              # Page components
+│   │   ├── Dashboard.tsx
+│   │   ├── TicketList.tsx
+│   │   └── Login.tsx
+│   ├── services/           # API services
+│   │   ├── api.ts          # Axios instance
+│   │   ├── auth.service.ts
+│   │   └── ticket.service.ts
+│   ├── types/              # TypeScript type definitions
+│   │   ├── api.ts          # Backend API types
+│   │   ├── auth.ts
+│   │   └── ticket.ts
+│   ├── utils/              # Utility functions
+│   │   ├── __tests__/
+│   │   └── mappers.ts      # Data transformation
+│   ├── tests/              # Test setup and mocks
+│   │   ├── setup.ts
+│   │   ├── utils/
+│   │   └── mocks/
+│   ├── App.tsx             # Main app component
+│   ├── main.tsx            # Entry point
+│   └── index.css           # Global styles
+├── public/                 # Static assets
+├── vitest.config.ts        # Test configuration
+├── vite.config.ts          # Vite configuration
+├── tailwind.config.js      # Tailwind CSS config
+├── tsconfig.json           # TypeScript config
+├── package.json
+└── README.md
+```
+
+## Tech Stack
+
+- **React** 19.2.0 - UI library
+- **TypeScript** 5.9.3 - Type safety
+- **Vite** 5.4.11 - Build tool & dev server
+- **Tailwind CSS** 3.3.0 - Utility-first CSS framework
+- **React Router DOM** 7.9.6 - Client-side routing
+- **Axios** 1.13.2 - HTTP client
+- **Vitest** 4.0.9 - Unit testing framework
+- **React Testing Library** 16.3.0 - Component testing
+- **MSW** 2.12.2 - API mocking for tests
+
+## Responsive Breakpoints
 
 - **Mobile**: < 640px - 2 columns (ID, Title)
 - **Small Tablet**: ≥ 640px - 3 columns (+ Status)
@@ -140,62 +199,34 @@ ALLOWED_ORIGINS=http://localhost:5173
 - **Desktop**: ≥ 1024px - 6 columns (+ Category, Level)
 - **Large Desktop**: ≥ 1280px - All 7 columns (+ Assigned To)
 
-## 🐛 Troubleshooting
+## Testing
 
-### Port 5173 is already in use
 ```bash
-# Kill the process using port 5173
-kill -9 $(lsof -t -i:5173)
+# Run tests in watch mode
+npm test
 
-# Or use a different port
-npm run dev -- --port 3000
+# Run tests with UI
+npm run test:ui
+
+# Run tests with coverage report
+npm run test:coverage
 ```
 
-### Port 8021 is already in use (Backend)
-```bash
-# Kill the process using port 8021
-kill -9 $(lsof -t -i:8021)
+For detailed testing documentation, see [README.testing.md](./README.testing.md)
 
-# Or change PORT in backend .env file
+## Build for Production
+
+```bash
+# Build the application
+npm run build
+
+# Preview the production build
+npm run preview
 ```
 
-### Backend connection refused
-- Make sure backend is running on `http://localhost:8021`
-- Check CORS settings in backend (should allow `http://localhost:5173`)
-- Verify API endpoints match backend routes
-- Check backend console for errors
+The build output will be in the `dist/` directory.
 
-### Authentication issues
-- Clear browser localStorage: Open DevTools → Application → Local Storage → Clear
-- Check that JWT token is being saved after login
-- Verify backend is returning proper token format
-- Check token expiration time in backend
-
-### Build errors
-```bash
-# Clean install
-rm -rf node_modules package-lock.json
-npm install
-
-# Clear Vite cache
-rm -rf node_modules/.vite
-npm run dev
-```
-
-### MongoDB connection errors (Backend)
-```bash
-# Make sure MongoDB is running
-# For macOS:
-brew services start mongodb-community
-
-# For Linux:
-sudo systemctl start mongod
-
-# For Windows:
-net start MongoDB
-```
-
-## 📊 Available Scripts
+## Available Scripts
 
 ```bash
 # Development
@@ -210,57 +241,44 @@ npm run test:ui      # Run tests with UI
 npm run test:coverage # Run tests with coverage
 ```
 
-## 🔒 Security Notes
+## Troubleshooting
+
+### Port 5173 is already in use
+```bash
+# Kill the process using port 5173
+kill -9 $(lsof -t -i:5173)
+
+# Or use a different port
+npm run dev -- --port 3000
+```
+
+### Authentication issues
+- Clear browser localStorage: Open DevTools → Application → Local Storage → Clear
+- Check that JWT token is being saved after login
+- Verify backend is returning proper token format
+
+### Build errors
+```bash
+# Clean install
+rm -rf node_modules package-lock.json
+npm install
+
+# Clear Vite cache
+rm -rf node_modules/.vite
+npm run dev
+```
+
+## Security Notes
 
 - **JWT Tokens** are stored in localStorage
 - **API calls** are protected with Bearer token authentication
 - **Role-based access** is enforced on both frontend and backend
-- **CORS** should be properly configured in backend
 - **Environment variables** should never be committed to git
-- Change **JWT_SECRET** in production to a strong random string
 
-## 📝 API Request Examples
-
-### Login
-```bash
-curl -X POST http://localhost:8021/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"email":"admin@gmail.com","password":"password123"}'
-```
-
-### Get Tickets (with auth)
-```bash
-curl http://localhost:8021/tickets?page=1&limit=10 \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN"
-```
-
-### Create Ticket (L1 only)
-```bash
-curl -X POST http://localhost:8021/tickets \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "title": "Laptop screen broken",
-    "description": "Screen has cracks",
-    "category": "Hardware",
-    "priority": "high",
-    "expectedCompletionDate": "2024-12-31T00:00:00.000Z"
-  }'
-```
-
-## 📄 License
+## License
 
 This project is private and confidential.
-
-## 👥 Contributors
-
-- Development Team
-
-## 📞 Support
-
-For issues or questions, please contact the development team or open an issue in the repository.
 
 ---
 
 **Built with ❤️ using React, TypeScript, and Tailwind CSS**
-# FE-TICKETING
