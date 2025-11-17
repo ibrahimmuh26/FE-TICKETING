@@ -21,7 +21,7 @@ export default function Sidebar() {
   return (
     <aside className="w-64 bg-white border-r border-gray-200 min-h-screen">
       <div className="p-6">
-        <h1 className="text-xl font-bold text-primary">HelpDesk</h1>
+        <h1 className="text-xl font-bold text-primary">Ticketing</h1>
       </div>
 
       <nav className="px-3">

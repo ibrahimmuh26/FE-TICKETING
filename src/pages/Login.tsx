@@ -44,7 +44,7 @@ export default function Login() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-full mb-4 shadow-lg">
             <ClipboardIcon className="text-primary" />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Helpdesk System</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">Ticketing System</h1>
           <p className="text-blue-100">Sign in to manage your tickets</p>
         </div>
 
@@ -115,7 +115,7 @@ export default function Login() {
 
         {/* Footer */}
         <p className="text-center text-blue-100 text-sm mt-8">
-          © 2024 Helpdesk System. All rights reserved.
+          © 2024 Ticketing System. All rights reserved.
         </p>
       </div>
     </div>
