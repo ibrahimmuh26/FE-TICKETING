@@ -1,6 +1,6 @@
-# Helpdesk Ticketing System - Frontend
+# Ticketing Ticketing System - Frontend
 
-A modern, responsive helpdesk ticketing system built with React, TypeScript, and Tailwind CSS.
+A modern, responsive Ticketing ticketing system built with React, TypeScript, and Tailwind CSS.
 
 ## Features
 
@@ -26,7 +26,7 @@ Before running this application, make sure you have:
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd helpdesk-app
+   cd Ticketing-app
    ```
 
 2. **Install dependencies**
@@ -137,7 +137,7 @@ The application requires authentication. Use these sample credentials to login:
 ## Project Structure
 
 ```
-helpdesk-app/
+Ticketing-app/
 ├── src/
 │   ├── components/          # Reusable UI components
 │   │   ├── __tests__/      # Component tests
