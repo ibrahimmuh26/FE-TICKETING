@@ -34,7 +34,12 @@ Before running this application, make sure you have:
    npm install
    ```
 
-3. **Configure environment (Optional)**
+3. **Clear Vite cache** (Important for CSS to work properly)
+   ```bash
+   rm -rf node_modules/.vite
+   ```
+
+4. **Configure environment (Optional)**
 
    The app is configured to use `http://localhost:8021` as the backend API URL by default.
 
@@ -242,6 +247,16 @@ npm run test:coverage # Run tests with coverage
 ```
 
 ## Troubleshooting
+
+### CSS not loading / Styling issues
+If CSS (Tailwind) is not loading after cloning to a new machine:
+```bash
+# Clean install and clear cache
+rm -rf node_modules package-lock.json
+npm install
+rm -rf node_modules/.vite
+npm run dev
+```
 
 ### Port 5173 is already in use
 ```bash
